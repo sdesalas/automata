@@ -7,7 +7,7 @@ const Observable = require('events');
 const Pattern = require('./lib/Pattern');
 const SensorCycle = require('./lib/SensorCycle');
 const Conditioning = require('./lib/Conditioning');
-const ReflectionManager = require('./lib/ReflectionManager');
+const Reflection = require('./lib/Reflection');
 const DeviceManager = require('./lib/DeviceManager');
 const Api = require('./lib/Api');
 
@@ -68,7 +68,7 @@ class Brain extends Observable {
 				'action': this.emit.bind(this, 'action')
 			}
 		});
-		this.reflectionManager = new ReflectionManager({
+		this.reflection = new Reflection({
 			memory: this.memory,
 			devices: this.devices,
 			delimiterIn: options.delimiterIn,
@@ -89,8 +89,8 @@ class Brain extends Observable {
 
 	// Reflection loop
 	idle() {
-		this.reflectionManager.reflect();
-		this.reflectionManager.fulfill();
+		this.reflection.reflect();
+		this.reflection.fulfill();
 		setTimeout(this.idle.bind(this), 500);
 	}
 
