@@ -1,0 +1,33 @@
+{
+  "name": "botbrain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-reverse": "0.0.2",
+    "fusspot": "git+https://github.com/sdesalas/fusspot.git",
+    "httpdispatcher": "^2.0.1",
+    "opn": "^3.0.3",
+    "serialport": "^4.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "start": "node ./bin/brain --debug > brain.log",
+    "static": "node static.js",
+    "test": "node ./node_modules/mocha/bin/mocha --invert --grep Performance",
+    "test:Pattern": "node ./node_modules/mocha/bin/mocha --grep Pattern",
+    "test:SensorCycle": "node ./node_modules/mocha/bin/mocha --grep SensorCycle",
+    "test:Utils": "node ./node_modules/mocha/bin/mocha --grep Utils",
+    "test:full": "node ./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "serial",
+    "arduino",
+    "learning"
+  ],
+  "author": "Steven de Salas",
+  "license": "MIT"
+}

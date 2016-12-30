@@ -1,0 +1,11 @@
+
+body { background: #f5f5f5; color: #444; }
+#app { max-width: 900px; margin: 10px auto; opacity: 0; transition: opacity 100ms; }
+#app.ready { opacity: 1 }
+#app .header { padding: 0 20px; }
+#app .clock { padding: 0 20px; text-align: center; font-family: monospace; cursor: pointer;}
+#app .clock h2 { float: right; font-size: 20px; background: #555; color: #fff; padding: 10px 20px; border-radius: 5px; }
+#app .top-stats { text-align: center; margin: 10px 0 60px;}
+#app .top-stats big { padding-top: 10px; color: #3e6b9a; font-size: 60px; font-weight: bold; display: block; }
+#app .charts {  }
+#app .charts canvas {margin-bottom: 80px;}

@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const util = require('util');
+const program = require('commander');
+const Brain = require('../');
+
+// options
+program
+    .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
+    .usage('[options]')
+    .option('--debug', 'Runs in debug mode')
+    .parse(process.argv);
+
+function log() {
+    var msg = arguments[0];
+    if (typeof msg === 'string') {
+        arguments[0] = util.format('%s: %s', new Date().toISOString(), msg);
+    }
+    console.log.apply(console, arguments);
+}
+
+// start
+var brain = new Brain({ 
+    debug: program.debug,
+    listeners: {
+        ready: function(devices) {
+            log('I am awake and have %d peripheral device/s.', devices);
+        },
+        deviceready: function(id, path) {
+            log('Device "%s" connected. Data path: %s', id, path);
+        },
+        deviceremoved: function(id, message) {
+            log('Device "%s" has been removed. %s', id, message);
+        },
+        offline: function() {
+            log('Offline. No devices connected.');
+        }
+    }
+}).wakeUp();

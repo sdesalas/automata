@@ -1,0 +1,95 @@
+{
+  "mf": {
+    "domain": null,
+    "_events": {
+      "connected": [
+        null,
+        null
+      ]
+    },
+    "_eventsCount": 4,
+    "port": {
+      "comName": "COM35",
+      "baudRate": 115200,
+      "session": "6&124019A&0&2",
+      "pnp": "USB://VID_1A86&PID_7523",
+      "id": "mf"
+    },
+    "id": "mf",
+    "delimiterOut": ">",
+    "delimiterIn": "<",
+    "actions": {
+      "B": [
+        "oQM|y4A|CjI|2PG",
+        "YUJ|VcA",
+        "6OA",
+        "WyH",
+        "4XK|gnA|24C|BBJ",
+        "nBA|IEI",
+        "dRI|IhB",
+        "HDA|uiE"
+      ],
+      "R": [
+        "0e|0j",
+        "0O|0e",
+        "1B",
+        "0Q",
+        "0j",
+        "05",
+        "1Y|1t",
+        "02",
+        "1t"
+      ],
+      "G": [
+        "1v|05",
+        "0+",
+        "1W|18",
+        "0y",
+        "0q|05",
+        "0k",
+        "0d",
+        "1i",
+        "1f",
+        "0S",
+        "1U",
+        "10|1l",
+        "1A",
+        "0H"
+      ]
+    },
+    "sensors": [
+      "G",
+      "L",
+      "R",
+      "B",
+      "W"
+    ],
+    "connection": {
+      "domain": null,
+      "_events": {},
+      "_eventsCount": 4,
+      "path": "COM35",
+      "fd": 648,
+      "paused": false,
+      "opening": false,
+      "closing": false,
+      "options": {
+        "baudRate": 115200,
+        "autoOpen": true,
+        "parity": "none",
+        "xon": false,
+        "xoff": false,
+        "xany": false,
+        "rtscts": false,
+        "hupcl": true,
+        "dataBits": 8,
+        "stopBits": 1,
+        "bufferSize": 65536,
+        "lock": true,
+        "platformOptions": {}
+      },
+      "readable": true,
+      "reading": false
+    }
+  }
+}

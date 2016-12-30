@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Status</title>
+    <link rel="stylesheet" href='lib/google-fonts/droid-sans.css' type='text/css'>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="lib/Chart-2.4.0/Chart.min.js"></script>
+    <script type="text/javascript" src="lib/vue-2.1.8/vue.js"></script>
+    <script type="text/javascript" src="lib/axios-0.15.3/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container" :class="{ ready: ready }">
+        <div class="row">
+          <div class="col-xs-8 header">
+            <h1><span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Status</h1>
+          </div>
+          <div class="col-xs-4 clock" @click="(paused ? play() : pause())">
+            <h2><i class="fa fa-fw" :class="{ 'fa-pause': paused, 'fa-clock-o': !paused }"></i> {{uptime}}</h2>
+          </div>
+        </div>
+        <div class="row top-stats">
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{deviceCount}}</big><i class="fa fa-usb fa-fw"></i> devices</div>
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{sensorCount}}</big><i class="fa fa-thermometer-three-quarters fa-fw"></i> sensors</div>
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{vectorCount}}</big><i class="fa fa-line-chart fa-fw"></i> vector inputs</div>
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{actuatorCount}}</big><i class="fa fa-hand-o-right fa-fw"></i> actuators</div>
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{commandCount}}</big><i class="fa fa-terminal fa-fw"></i> commands</div>
+          <div class="col-xs-6 col-sm-4 col-md-2"><big>{{ramUsage}}</big><i class="fa fa-pie-chart fa-fw"></i> MB RAM</div>
+        </div>
+        <div class="row charts">
+          <div class="col-md-12">
+            <canvas id="historyChart" width="100%"></canvas>
+          </div>
+          <!--div class="col-md-12">
+            <canvas id="gridChart" width="100%"></canvas>
+          </div-->
+          <div class="col-md-6">
+            <canvas id="topReactionsChart" width="100%"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="topConsequencesChart" width="100%"></canvas>
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
