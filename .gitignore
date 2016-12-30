@@ -39,3 +39,4 @@ jspm_packages
 _backups/
 static/lib/Chart-2.4.0/Chart.js/samples/
 data
+static/lib/Chart-2.4.0/samples/
