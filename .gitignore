@@ -38,3 +38,4 @@ jspm_packages
 .atom-build.js
 _backups/
 static/lib/Chart-2.4.0/Chart.js/samples/
+data
