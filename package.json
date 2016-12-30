@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "commander": "^2.9.0",
+    "fs-extra": "^1.0.0",
     "fs-reverse": "0.0.2",
     "fusspot": "git+https://github.com/sdesalas/fusspot.git",
     "httpdispatcher": "^2.0.1",
