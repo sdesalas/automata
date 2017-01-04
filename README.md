@@ -9,10 +9,10 @@ The following concepts are used throught this project:
 The autodiscovery protocol allows an process of `automata` to discover attached USB microcontroller devices and their capabilities. There is no magic here. Each microcontroller attached via USB contains custom firmware that can be queried for a list of available actuator commands and well as examples of each command. 
 
 ```
-? --> Automata: what commands are available on this USB device?
-?>B|W|R -> Device: I have 3 types of actuator commands for you, 'B' (buzzer), 'W' (wheels), 'R' (radio signal)
-?<B --> Automata: give me an example of 'B' 
-?>B<KUe --> Device: You can use `B<KUe` and this will do something (ie buzzer command that outputs 300Hz sound for 2 secs)
+?        --> Automata: what commands are available on this USB device?
+?>B|W|R  --> Device: I have 3 types of actuator commands for you, 'B' (buzzer), 'W' (wheels), 'R' (radio signal)
+?<B      --> Automata: give me an example of 'B' 
+?>B<KUe  --> Device: You can use `B<KUe` and this will do something (ie buzzer command that outputs 300Hz sound for 2 secs)
 ```
 
 ## sensor stream
@@ -22,15 +22,15 @@ A constant feed of sensor data is pumped into automata. This is a basic cycle th
 For example:
 
 ```
-B>0 --> buzzer is not doing anything
-W>ff --> wheels are going forward at max speed
-F>f --> front IR sensor is registering max distance (nothing in front)
-B>f --> back IR sensor is registering max distance (nothing behind)
-L>5 --> left IR sensor is registering an object at low distance (something to the left)
-R>f --> right IR sensor is registering max distance (nothing to the right)
-B>0 --> buzzer still not doing anything
-W>ff --> wheels (still) going forward at max speed
-F<d --> front infrared sensor is registering an incoming object
+B>0   --> buzzer is not doing anything
+W>ff  --> wheels are going forward at max speed
+F>f   --> front IR sensor is registering max distance (nothing in front)
+B>f   --> back IR sensor is registering max distance (nothing behind)
+L>5   --> left IR sensor is registering an object at low distance (something to the left)
+R>f   --> right IR sensor is registering max distance (nothing to the right)
+B>0   --> buzzer still not doing anything
+W>ff   --> wheels (still) going forward at max speed
+F<d   --> front infrared sensor is registering an incoming object
 ```
 
 ## experimentation
