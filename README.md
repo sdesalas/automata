@@ -4,7 +4,7 @@ Concepts such as 'right', 'left', 'forward', 'edge', 'wall' are all human-made c
 
 All a robot knows is perceived through their sensors: digital, analog, and waveform. Thus the reality of a robot is shaped by their ability to perceive changes to sensor data in real time, and their ability to modify what they perceive through actuator commands that create changes in the real world around it.
 
-This project is a leap towards full automation, and its based on a void of concepts that can be filled randomly with greater or lesser success depending on sensor input. The following building blocks are used to achieve this:
+This project is a leap towards full automation, based on a void of concepts that can be filled randomly with greater or lesser success depending on sensor input. The following building blocks are used to achieve this:
 
 ## autodiscovery
 
