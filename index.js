@@ -1,16 +1,15 @@
 "use strict";
 
 const fs = require('fs');
-const opn = require('opn');
 const util = require('util');
 const config = require('./config');
 const Observable = require('events');
+const Api = require('./lib/Api');
 const Pattern = require('./lib/Pattern');
 const SensorCycle = require('./lib/SensorCycle');
 const Conditioning = require('./lib/Conditioning');
 const Reflection = require('./lib/Reflection');
 const DeviceManager = require('./lib/DeviceManager');
-const Api = require('./lib/Api');
 
 class Automata extends Observable {
 
