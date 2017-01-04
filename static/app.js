@@ -9,6 +9,7 @@ var app = new Vue({
         ready: false,
         paused: false,
         devices: {},
+        history: {},
         memory: {},
         status: {}
     },
@@ -76,27 +77,9 @@ var app = new Vue({
                 }
             });
         },
-        reactionsChartData: function() {
-            var inputs = this.memory && this.memory.reactions && this.memory.reactions.inputs || {};
-            return Object.keys(inputs).reduce((data, input, i1) => {
-                inputs[input].forEach((weight, i2) => {
-                    data.push({ x: i1 * 2, y: i2 * 2, r: weight * 400 });
-                });
-                return data;
-            }, []);
-        },
-        consequencesChartData: function() {
-            var inputs = this.memory && this.memory.consequences && this.memory.consequences.inputs || {};
-            return Object.keys(inputs).reduce((data, input, i1) => {
-                inputs[input].forEach((weight, i2) => {
-                    data.push({ x: (i2 * 2) + 1, y: (i1 * 2) + 1, r: weight * 400 });
-                });
-                return data;
-            }, []);
-        },
         reactionsActivityData: function() {
             var cutoff = new Date().getTime() - 30 * 1000;
-            var history = this.memory && this.memory.history && this.memory.history.reactions || [];
+            var history = this.history && this.history.reactions || [];
             return Array.from(Array(30).keys()).map(secs => {
                 return history.filter(i => {
                     var diff = (i.timestamp - cutoff);
@@ -106,7 +89,7 @@ var app = new Vue({
         },
         surprisesActivityData: function() {
             var cutoff = new Date().getTime() - 30 * 1000;
-            var history = this.memory && this.memory.history && this.memory.history.surprises || [];
+            var history = this.history && this.history.surprises || [];
             return Array.from(Array(30).keys()).map(secs => {
                 return history.filter(i => {
                     var diff = (i.timestamp - cutoff);
@@ -116,7 +99,7 @@ var app = new Vue({
         },
         experimentsActivityData: function() {
             var cutoff = new Date().getTime() - 30 * 1000;
-            var history = this.memory && this.memory.history && this.memory.history.experiments || [];
+            var history = this.history && this.history.experiments || [];
             return Array.from(Array(30).keys()).map(secs => {
                 return history.filter(i => {
                     var diff = (i.timestamp - cutoff);
@@ -159,10 +142,6 @@ var app = new Vue({
                     this.charts.data.topConsequences.labels = this.memory.consequences.outputs;
                     this.charts.topConsequences.update();
                 }
-                this.charts.data.history.datasets[0].data = this.surprisesActivityData;
-                this.charts.data.history.datasets[1].data = this.reactionsActivityData;
-                this.charts.data.history.datasets[2].data = this.experimentsActivityData;
-                this.charts.history.update();
             });
         },
 
@@ -170,6 +149,16 @@ var app = new Vue({
             //console.log('app.getDevices()');
             return axios.get('/devices').then(response => {
                 this.devices = response.data;
+            });
+        },
+
+        getHistory: function() {
+            return axios.get('/history').then(response => {
+                this.history = response.data;
+                this.charts.data.history.datasets[0].data = this.surprisesActivityData;
+                this.charts.data.history.datasets[1].data = this.reactionsActivityData;
+                this.charts.data.history.datasets[2].data = this.experimentsActivityData;
+                this.charts.history.update();
             });
         },
 
@@ -182,6 +171,7 @@ var app = new Vue({
             console.log('app.getAll()');
             axios.all([
                 this.getMemory(), 
+                this.getHistory(),
                 this.getDevices(), 
                 this.getStatus()
             ]).then(axios.spread((acct) => {
@@ -206,7 +196,8 @@ var app = new Vue({
         play: function() {
             this.intervals = this.intervals || {};
             this.intervals.getDevices = setInterval(() => this.getDevices(), 3300);
-            this.intervals.getMemory = setInterval(() => this.getMemory(), 1000);
+            this.intervals.getMemory = setInterval(() => this.getMemory(), 5100);
+            this.intervals.getHistory = setInterval(() => this.getHistory(), 1000);
             this.intervals.getStatus = setInterval(() => this.getStatus(), 2280);
             this.intervals.tickUptime = setInterval(() => this.tickUptime(), 990);
             this.paused = false;
@@ -429,7 +420,7 @@ app.charts.topReactions = new Chart('topReactionsChart', {
         },
         title: {
             display: true,
-            text: 'Top Reactions'
+            text: 'Surprises vs Reactions'
         },
         animation: {
             animateScale: true,
@@ -448,7 +439,7 @@ app.charts.topConsequences = new Chart('topConsequencesChart', {
         },
         title: {
             display: true,
-            text: 'Top Consequences'
+            text: 'Actions vs Consequences'
         },
         animation: {
             animateScale: true,
@@ -456,34 +447,3 @@ app.charts.topConsequences = new Chart('topConsequencesChart', {
         }
     }
 });
-/*
-app.charts.grid = new Chart('gridChart', {
-    type: 'bubble',
-    data: app.charts.data.grid,
-    options: {
-        tooltips: {
-            custom: function(tooltip) {
-                // tooltip will be false if tooltip is not visible or should be hidden
-                if (!tooltip) {
-                    return;
-                }
-
-                // Otherwise, tooltip will be an object with all tooltip properties like:
-
-                tooltip.text = 'blah';
-                // tooltip.caretSize
-                // tooltip.caretPadding
-                // tooltip.chart
-                // tooltip.cornerRadius
-                // tooltip.fillColor
-                // tooltip.font...
-                // tooltip.text
-                // tooltip.x
-                // tooltip.y
-                // tooltip.caretX
-                // tooltip.caretY
-                // etc...
-            }
-        }
-    }
-});*/
