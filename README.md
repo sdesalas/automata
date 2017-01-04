@@ -1,6 +1,8 @@
 # automata
 
-Concepts such as 'right', 'left', 'forward', 'edge', 'wall' are all human-made constructs that have no place in the world of small robot. All a robot knows is perceived through their sensors: digital, analog, and waveform. Thus the reality of a bot is shaped by their ability to perceive changes to sensor data in real time, and their ability to modify what they perceive through actuator commands that create changes in the real world around it.
+Concepts such as 'right', 'left', 'forward', 'edge', 'wall' are all human-made constructs that have no place in the world of small robot. 
+
+All a robot knows is perceived through their sensors: digital, analog, and waveform. Thus the reality of a bot is shaped by their ability to perceive changes to sensor data in real time, and their ability to modify what they perceive through actuator commands that create changes in the real world around it.
 
 The following concepts are used throught this project:
 
