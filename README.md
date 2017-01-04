@@ -40,16 +40,16 @@ F<d   --> front infrared sensor is registering an incoming object
 
 ## experimentation
 
-Incremental testing of actual commands and resulting changes to sensor input allows the robot to build an understanding of how to interact with the world around them.
+Incremental experiment of known commands and resulting changes to sensor input allows the robot to build an understanding of how to interact with the world around them. See the 'autodiscovery' section for an example.
 
 ## conditioning
 
-Sensor input is expressed as vectors allowing for easy change detecting and mapping to actuator commands. 
+Sensor input is expressed as vectors allowing for easy change detection and map input vectors to actuator commands. 
 
 ## self-learning
 
-Whenever an action has taken place this can be reinforced to create conditioned responses that are likely to occur with increasing frequency. The logic here is taken from nature where neural pathways are reinforced through repeated use.
+Whenever an action has taken place this can be reinforced to create conditioned responses that are likely to occur with increasing frequency. The logic here is taken from nature where neural pathways are reinforced through repeated use. While a lot of this can occur randomly, external training and guidance help the robot become effective much more quickly (see next section).
 
 ## training
 
-The ability to associate certain sensor inputs as positive (pleasure) and negative (pain), allows for reinforcement to be weakened by a human mentor or robot buddy.
+The ability to associate certain sensor inputs as positive (pleasure) and negative (pain), allows for reinforcement to be strengthened or weakened by a human mentor or robot buddy. Humans can train an `automata` process using two buttons for each type of reinforcement (red: negative, green: positive), but as a robot starts associating these with other sensor inputs they can also be influenced and trained by other robots.
