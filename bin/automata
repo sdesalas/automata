@@ -3,7 +3,7 @@
 const fs = require('fs');
 const util = require('util');
 const program = require('commander');
-const Brain = require('../');
+const Automata = require('../');
 
 // options
 program
@@ -21,7 +21,7 @@ function log() {
 }
 
 // start
-var brain = new Brain({ 
+var automata = new Automata({ 
     debug: program.debug,
     listeners: {
         ready: function(devices) {

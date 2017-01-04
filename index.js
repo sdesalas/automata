@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require('fs');
+const opn = require('opn');
 const util = require('util');
 const config = require('./config');
 const Observable = require('events');
@@ -11,10 +12,10 @@ const Reflection = require('./lib/Reflection');
 const DeviceManager = require('./lib/DeviceManager');
 const Api = require('./lib/Api');
 
-class Brain extends Observable {
+class Automata extends Observable {
 
 	constructor(options) {
-		console.debug('new Brain()', options);
+		console.debug('new Automata()', options);
 		super();
 		options = options || {};
 		options.dataPath = options.dataPath || config.DATA_PATH;
@@ -28,7 +29,7 @@ class Brain extends Observable {
 			}
 		}
 		// Internal fields
-		Brain.debugMode = options.debug;
+		Automata.debugMode = options.debug;
 		this.devices = {};
 		this.memory = {};
 		this.options = options;
@@ -36,7 +37,7 @@ class Brain extends Observable {
 
 	// YAWN! Time to wake up!
 	wakeUp() {
-		console.debug('Brain.prototype.wakeUp()', this.options);
+		console.debug('Automata.prototype.wakeUp()', this.options);
 		var options = this.options;
 		this.cycle = new SensorCycle({ 
 			size: options.memSize,
@@ -78,7 +79,10 @@ class Brain extends Observable {
 		});
 		this.api = new Api({
 			state: this,
-			dataPath: options.dataPath
+			dataPath: options.dataPath,
+			listeners: {
+				'ready': () => console.warn('Running on http://localhost:8199')
+			}
 		});
 		this.on('data', this.data.bind(this));
 		this.on('surprise', this.conditioning.surprise.bind(this.conditioning));
@@ -97,7 +101,7 @@ class Brain extends Observable {
 	// Aggregated incoming data pipeline for all the sensors.
 	// This gets called pretty frequently so should be optimised!
 	data(data) {
-		console.debug('Brain.prototype.data()', data);
+		console.debug('Automata.prototype.data()', data);
 		if (data.indexOf(this.options.delimiterOut) !== -1) {
 			var update = this.cycle.update(data).lastUpdate;
 			if (update && update.surprise) { 
@@ -115,7 +119,7 @@ class Brain extends Observable {
 	// this.action("mf.r<1"); 		//--> {device: "mf", vpin: "r", data: "1" } // Turns on Red LED
 	// this.action("yA.b<&a|63"); 	//--> {device: "yA", vpin: "b", data: "&a|63" } // Runs 2 tones on buzzer
 	action(action) {
-		console.warn('Brain.prototype.action()', action);
+		console.warn('Automata.prototype.action()', action);
 		var delimiterIn = this.options.delimiterIn;
 		if (action && action.indexOf(delimiterIn)) {
 			// Find device & write to it
@@ -136,6 +140,6 @@ console.debug = function() {
 
 
 if (typeof module !== 'undefined') {
-	module.exports = Brain;
+	module.exports = Automata;
 }
 

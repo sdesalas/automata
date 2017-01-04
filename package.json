@@ -1,5 +1,5 @@
 {
-  "name": "botbrain",
+  "name": "automata",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "mocha": "^3.1.2"
   },
   "scripts": {
-    "start": "node ./bin/brain --debug > brain.log",
+    "start": "node ./bin/automata --debug > dump.log",
     "static": "node static.js",
     "test": "node ./node_modules/mocha/bin/mocha --invert --grep Performance",
     "test:Pattern": "node ./node_modules/mocha/bin/mocha --grep Pattern",
