@@ -20,7 +20,7 @@ This creates the following type of conversation:
 B<KUe    --> Automata: Alright do it. I'll check the sensor feed see what happens.
 ```
 
-## sensor stream
+## sensor stream (or sensor cycle)
 
 A constant feed of sensor data is pumped into automata. This is a basic cycle through each sensors outputting data for each at an arbitrary interval. Automata takes care of the pattern matching and highlights changes in sensor data that might require actioning.
 
