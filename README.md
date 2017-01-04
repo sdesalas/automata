@@ -44,7 +44,7 @@ Incremental experiment of known commands and resulting changes to sensor input a
 
 ## conditioning
 
-Sensor input is expressed as vectors allowing for easy change detection and map input vectors to actuator commands. 
+Sensor input is expressed as vectors allowing for easy change detection and map input vectors to actuator commands. Conditioning occurs when given a particular vector input, certain command outputs are more likely to occur than anything else.
 
 ## self-learning
 
