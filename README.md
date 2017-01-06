@@ -17,7 +17,7 @@ The autodiscovery protocol allows an process of `automata` to discover attached 
 This creates the following type of conversation:
 
 ```
-?        --> Automata: What commands are available on this USB device?
+?        --> Automata: What commands are available on this (USB) device?
 ?>B|W|R  --> Device: I have 3 types of actuator commands for you, 'B' (buzzer), 'W' (wheels), 'R' (radio signal)
 ?<B      --> Automata: Give me an example of 'B' 
 ?>B<KUe  --> Device: Use `B<KUe` and this will do something (ie buzzer outputs 300Hz sound for 2 secs)
