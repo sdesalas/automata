@@ -10,6 +10,8 @@ This project is an attempt at full robotic automation, starting with a void of c
 
 Because I like building robots but I can't see the point of codifying every single interaction with their environment, I rather they learn on their own with my assistance.
 
+The name `automata` is a play on words with the extremely popular [firmata](https://github.com/firmata/protocol) protocol.
+
 ## autodiscovery
 
 The autodiscovery protocol allows an process of `automata` to discover attached USB microcontroller devices and their capabilities. There is no magic here. Each microcontroller attached via USB contains custom firmware that can be queried for a list of available actuator commands and well as examples of each command. 
