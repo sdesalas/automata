@@ -6,7 +6,7 @@ All a robot knows is perceived through their sensors: digital, analog, and wavef
 
 This project is an attempt at full robotic automation, starting with a void of concepts that can be filled randomly with greater or lesser success depending on sensor input. 
 
-## Why? 
+## why? 
 
 Because I like building robots but I cant be stuffed codifying every single interaction with their environment, I rather they learn on their own with my assistance.
 
