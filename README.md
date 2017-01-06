@@ -26,7 +26,7 @@ B<KUe    --> Automata: Alright do it. I'll check the sensor feed see what happen
 
 ## sensor stream (or sensor cycle)
 
-A constant feed of sensor data is pumped into automata. This is a basic round-robin cycle through all sensors outputting data at an arbitrary interval. Automata takes care of the pattern matching and highlights changes in sensor data that might require actioning.
+A constant feed of sensor data is pumped into automata. This is a basic round-robin cycle through all sensors outputting data at an arbitrary interval. So long as the interval speed is maintained, the `automata` process takes care of the pattern matching and highlights changes in sensor data that might require actioning.
 
 For example:
 
