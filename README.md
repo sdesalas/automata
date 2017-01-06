@@ -8,7 +8,7 @@ This project is an attempt at full robotic automation, starting with a void of c
 
 ## why? 
 
-Because I like building robots but I can't see the point of codifying every single interaction with their environment, I rather they learn on their own with my assistance.
+Because [I like building robots](https://github.com/sdesalas/robotics) but I can't see the point of codifying every single interaction with their environment, I rather they learn on their own with my assistance.
 
 The name `automata` is a play on words with the popular *[firmata](https://github.com/firmata/protocol)* protocol.
 
