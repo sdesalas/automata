@@ -14,7 +14,7 @@ The name `automata` is a play on words with the extremely popular *[firmata](htt
 
 ## autodiscovery
 
-The autodiscovery protocol allows an process of `automata` to discover attached USB microcontroller devices and their capabilities. There is no magic here. Each microcontroller attached via USB contains custom firmware that can be queried for a list of available actuator commands and well as examples of each command. 
+The autodiscovery protocol allows an process of `automata` to discover attached USB microcontroller devices and their capabilities. There is no magic here. Each microcontroller attached via USB contains custom firmware that can be queried over serial for a list of available actuator commands and well as examples of each command. 
 
 This creates the following type of conversation:
 
