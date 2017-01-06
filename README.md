@@ -8,7 +8,7 @@ This project is an attempt at full robotic automation, starting with a void of c
 
 ## why? 
 
-Because I like building robots but I cant be stuffed codifying every single interaction with their environment, I rather they learn on their own with my assistance.
+Because I like building robots but I can't see the point of codifying every single interaction with their environment, I rather they learn on their own with my assistance.
 
 ## autodiscovery
 
