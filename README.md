@@ -1,6 +1,6 @@
 # automata
 
-All a robot knows is perceived through their sensors: digital, analog, and waveform. Concepts such as 'right', 'left', 'forward', 'edge', 'wall' are all human-made constructs that have no place in the world of a robot, their reality is instead shaped by perceived changes to sensor data in real time, and their ability to modify what they perceive through actuator commands that change the world around it.
+All a robot knows is perceived through their sensors: digital, analog, and waveform. Concepts such as 'right', 'left', 'forward', 'edge', 'wall' are all human-made constructs that have no place in the world of a robot, their reality is instead shaped by changes to sensor data in real time, and their ability to modify what they perceive through actuator commands that change the world around it.
 
 This project is an attempt at full robotic automation, starting with a void of concepts and interactions that can be filled randomly with greater or lesser success depending on sensor input. 
 
