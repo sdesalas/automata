@@ -10,6 +10,10 @@ Because [I like building robots](https://github.com/sdesalas/robotics) but I can
 
 The name `automata` is a play on words with the popular *[firmata](https://github.com/firmata/protocol)* protocol.
 
+## why javascript?
+
+Because  its the language i use most on a day to day basis. It runs on tiny, low-power devices, and has support for usb serial via awesome projects like [node-serialport](https://github.com/EmergingTechnologyAdvisors/node-serialport). 
+
 ## autodiscovery
 
 The autodiscovery protocol allows an process of `automata` to discover attached USB microcontroller devices and their capabilities. There is no magic here. Each microcontroller contains custom firmware that can be queried over serial for a list of available actuator commands and well as examples of each command. 
