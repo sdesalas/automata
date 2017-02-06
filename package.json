@@ -7,7 +7,7 @@
     "commander": "^2.9.0",
     "fs-extra": "^1.0.0",
     "fs-reverse": "0.0.2",
-    "fusspot": "git+https://github.com/sdesalas/fusspot.git",
+    "fusspot": "1.0.1",
     "httpdispatcher": "^2.0.1",
     "opn": "^3.0.3",
     "serialport": "^4.0.1"
